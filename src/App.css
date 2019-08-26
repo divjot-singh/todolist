@@ -1,33 +1,247 @@
-.App {
+header{
+  margin:1em auto;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+input.note-input, textarea.note-input{
+  border-left: none;
+  border-right: none;
+  border-radius: unset;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+textarea.note-input{
+  border-top:unset;
+  height: calc(100vh - 168px)!important;
+}
+
+input.note-input:focus,textarea.note-input:focus{
+  outline: 0;
+  box-shadow:none;
+  border-color: initial;
+}
+
+.popupcontainer{
+    background: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: translate(-50%,-50%) rotate(0deg); }
+  100% { -webkit-transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+.popupcontent{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 80%;
+  height: 160px;
+  border: 5px solid #0b5e0c;
+  padding: 5%;
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  background: #ffffff;
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.popupcontent p{
+  flex: 0 0 100%;
+}
+.popupcontent button{
+  margin: 0 10%;
+}
+
+.notescontainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.noteitem{
+  border: 1px solid #626962;
+  padding: 10px;
+  text-align: left;
+  background: #808080b5;
+  color: #e7e7e7fc;
+  flex: 0 0 100%;
+}
+.noteitem span{
   color: white;
+  float: right;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.noteitem span ul{
+  position: absolute;
+    right: 0;
+    background: white;
+    color: #4f4c4c;
+    padding: 0;
+    width: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.noteitem span ul li{
+  list-style: none;
+  padding: 5px 10px;
+}
+.noteitem span ul li a{
+  color: inherit;
+}
+.noteitem span ul li:last-child{
+  padding-bottom: 10px;
+}
+.noteitem span ul li:first-child{
+  padding-top: 10px;
+}
+.noteitem span ul li:hover{
+  color:#ccc;
+  
+}
+.addNote{
+  border-radius: 50%;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  font-size: 40px;
+  color: #ececec;
+  background: #8a8585;
+  width: 70px;
+  height: 70px;
+}
+.addNote i{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.fallback{
+  text-align: center;
+  padding: 30% 0;
+  color: #807878;
+  background: #cccccc61;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.noteitem span ul li i{
+  margin-right:5px;
+}
+
+@media (min-width:500px){
+  .noteitem{
+    flex:0 0 48%;
+    margin:1%;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.noteitem h1{
+  color: azure;
+  text-transform: capitalize;
+}
+
+.notecontrols{
+  margin:1em 0; 
+}
+
+.notecontrols button{
+  background: none;
+  border: none;
+}
+
+.notecontrols button.save{
+  float: right;
+}
+.loginContainer{
+  position: absolute;
+    text-align: center;
+    padding: 15px;
+    background: #3b7cb3e3;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.loginContainer button{
+  color: white;
+    background: blue;
+    border: none;
+    position: relative;
+    width: 290px;
+    height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 0;
+}
+
+.loginContainer button img{
+  height: 40px;
+  width: 80px;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  border-radius: 4px;
+}
+
+header{
+  background: #808080b5;
+  margin-top: 0;
+  padding: 15px;
+  color: white;
+  font-size: 24px;
+}
+
+.avatarComponent{
+  background: orange;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    float: right;
+    overflow: visible;
+    position: relative;
+}
+
+.avatarComponent ul{
+  position: absolute;
+    background: orange;
+    right: 50%;
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    border: 1px solid orange;
+}
+
+.avatarComponent ul li{
+  padding: 10px 15px;
+}
+.avatarComponent ul li:hover{
+  color:orange;
+  background: white;
 }
